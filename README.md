@@ -30,13 +30,15 @@ Capture the waveforms and include the results in the final report.
 
 Verilog Code for Sequence Detector Using Moore FSM
 
-// moore_sequence_detector.v
-module moore_sequence_detector (
+
+
+        // moore_sequence_detector.v
+    module moore_sequence_detector (
     input wire clk,
     input wire reset,
     input wire seq_in,
     output reg detected
-);
+     );
     typedef enum reg [2:0] {
         S0, S1, S2, S3, S4  // States for detecting 1011
     } state_t;
@@ -82,17 +84,22 @@ module moore_sequence_detector (
             default: next_state = S0;
         endcase
     end
-endmodule
+    endmodule
+
+OUTPUT:
+
+![moore FSMScreenshot 2025-05-05 190550](https://github.com/user-attachments/assets/240100cc-49a7-4130-b0f4-3afdea251c3f)
+
 
 Verilog Code for Sequence Detector Using Mealy FSM
 
-// mealy_sequence_detector.v
-module mealy_sequence_detector (
+    // mealy_sequence_detector.v
+    module mealy_sequence_detector (
     input wire clk,
     input wire reset,
     input wire seq_in,
     output reg detected
-);
+    );
     typedef enum reg [2:0] {
         S0, S1, S2, S3  // States for detecting 1011
     } state_t;
@@ -133,7 +140,12 @@ module mealy_sequence_detector (
             default: next_state = S0;
         endcase
     end
-endmodule
+    endmodule
+
+OUTPUT:
+
+![mealy fsmScreenshot 2025-05-05 191436](https://github.com/user-attachments/assets/972d0592-1254-48f6-90fc-21aa21a5550d)
+
 
 
 Testbench for Sequence Detector (Moore and Mealy FSMs)
